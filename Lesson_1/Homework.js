@@ -46,7 +46,7 @@ translate("ES");
 function subString(str) {
     let newstr = "";
     for(let i = 0; i < str.length; i++) {
-        newstr = str.substring(0,11);
+        newstr = str.substring(0,11); 
     }
     newstr = newstr.concat("...");
     console.log(newstr);
