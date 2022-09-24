@@ -56,8 +56,8 @@ subString("xinchaocacbandenvoiTechmaster");
 //BT5
 function game() {
     var a = ['bua', 'keo', 'bao'];
-    var player = Math.floor(Math.random() * a.length);
-    var computer = Math.floor(Math.random() * a.length);
+    let player = Math.floor(Math.random() * a.length);
+    let computer = Math.floor(Math.random() * a.length);
 
     console.log(`Nguoi choi: ${a[player]}`);
     console.log(`May tinh: ${a[computer]}`);
