@@ -11,15 +11,9 @@ para1.forEach(p => p.style.color = 'blue');
 //B3
 // Thêm 3 thẻ <li> có nội dung Item 8, Item 9, Item 10 vào cuối danh sách
 const list = document.querySelector('#list');
-let newLi8 = document.createElement('li');
-let newLi9 = document.createElement('li');
-let newLi10 = document.createElement('li');
-newLi8.textContent = "Item 8";
-newLi9.textContent = "Item 9";
-newLi10.textContent = "Item 10";
-list.appendChild(newLi8);
-list.appendChild(newLi9);
-list.appendChild(newLi10);
+list.insertAdjacentHTML("beforeend", '<li>Item 8</li>');
+list.insertAdjacentHTML("beforeend", '<li>Item 9</li>');
+list.insertAdjacentHTML("beforeend", '<li>Item 10</li>');
 
 // Sửa nội dung cho thẻ <li> 1 thành màu đỏ (color)
 const li = list.querySelectorAll('li');
