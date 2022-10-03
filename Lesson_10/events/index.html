@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic nisi debitis enim tempora rerum provident magnam velit corporis! Ipsam voluptatum commodi consectetur molestias sit quod alias ex eius veritatis. Dicta.</p>
+
+    <button id="btn-1">Change content</button>
+    <button id="btn-2">Change color</button>
+    <button id="btn-3">Change background</button>
+</body>
+<script>
+    //1. Change the content of paragraph
+    const arrStr = ["Lorem ipsum dolor sit amet.",
+                    "Lorem ipsum dolor sit amet akeieie.",
+                    "Lorem ipsum dolor sit amet i0eieksksna."
+    ];
+    const btn1 = document.querySelector("#btn-1");
+    btn1.addEventListener("click", () => {
+        document.querySelector('#text').textContent = arrStr[Math.floor(Math.random()*arrStr.length)];
+    });
+
+    //2. Change the color
+    function randomHexCode() {
+    var letters = "0123456789ABCDEF";
+    var color = "#";
+    for(var i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+    }
+
+    const btn2 = document.querySelector("#btn-2");
+    btn2.addEventListener("click", () => {
+        document.getElementById("text").style.color = randomHexCode();
+    })
+
+    //3. Change background color
+    function randomRgbCode() {
+        return (`rgb(${Math.floor(Math.random()*255)}, ${Math.floor(Math.random()*255)}, ${Math.floor(Math.random()*255)})`);
+    }
+    
+    const btn3 = document.querySelector("#btn-3");
+    btn3.addEventListener("click", () => {
+        document.getElementById("text").style.backgroundColor = randomRgbCode();
+    })
+</script>
+</html>

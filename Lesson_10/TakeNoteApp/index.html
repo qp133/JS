@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Take Note App</title>
+</head>
+<body>
+    <h1>Notes App</h1>
+    <h3>Take note and never forget</h3>
+        <form id = "add">
+            <input type="text" name = "title">
+            <input type="text" name = "body">
+            <button type="submit">Add to do</button>
+        </form>
+        <div id="list"></div>
+</body>
+<script>
+    const notes = [
+        {
+            title: 'Relaxing',
+            body: 'Go to bed on time'
+        },
+        {
+            title: 'Next trip',
+            body: 'Go to the Spain'
+        },
+        {
+            title: 'Office work',
+            body: 'Report the work'
+        }
+    ]
+
+    const renderNotes = (notes) => {
+        notes.forEach((note,i) => {
+            let element = document.createElement("p");
+            element.innerHTML = 
+                `
+                    <h3>Title: ${note.title}</h3>
+                    <p>Content: ${note.body}</p>
+                    <button id=${i}>Delete</button>
+                `
+            document.querySelector("#list").appendChild(element);
+            document.getElementById(`${i}`).addEventListener("click", (e) => {
+                e.target.parentNode.remove();
+                notes.splice(i,1);
+            })
+        })
+    }
+
+    const clearNotes = () => {
+        document.querySelector("#list").innerHTML = '';
+    }
+
+    renderNotes(notes);
+
+    const add = document.querySelector("#add");
+    add.addEventListener("submit", (e) => {
+        e.preventDefault();
+        notes.push({
+            title: e.target.elements.title.value,
+            body: e.target.elements.body.value
+        })
+        e.target.elements.title.value = '';
+        e.target.elements.body.value = '';
+        clearNotes();
+        renderNotes(notes);
+    })
+</script>
+</html>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Techmaster</title>
+
+    <!-- Link google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Link icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- Link tự viết -->
+    <link rel="stylesheet" href="./style.css">
+
+    <style>
+        .ul-courses {
+            list-style: disc;
+        }
+        .back-button{
+            background-color: green;
+            margin: 0px 0 15px 15px;
+            border: 1px solid white;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .back-button a {
+            text-decoration: none;
+            color: #fff;
+        }
+        .courses-main {
+            flex-basis: 100%;
+            padding: 0 15px;
+            margin-bottom: 30px;
+        }
+
+        .courses-title {
+            text-transform: uppercase;
+            font-weight: normal;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .courses-info {
+            padding: 0 20px 20px 20px;
+        }
+        .courses-info p {
+            margin-bottom: 15px;
+        }
+        .courses-info ul {
+            margin-left: 20px;
+        }
+        .courses-info ul li {
+            padding: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <img src="https://techmaster.vn/resources/image/logo-techmaster/white/white_200x74.png" alt="Logo">
+        </div>
+
+        <div class="sidebar">
+            <div class="menu">
+                <ul>
+                    <li class="menu-item">LỘ TRÌNH
+                        <span><i class="fa-solid fa-caret-down"></i></span>
+
+                        <ul class="sub-menu">
+                            <li class="sub-menu-item">Web Front End + React.js</li>
+                            <li class="sub-menu-item">Java Spring Boot Fullstack</li>
+                            <li class="sub-menu-item">DevOps</li>
+                            <li class="sub-menu-item">Amazon Web Service</li>
+                            <li class="sub-menu-item">Google Flutter</li>
+                            <li class="sub-menu-item">Apple iOS</li>
+                        </ul>
+                    </li>
+                    <li class="menu-item">DOANH NGHIỆP</li>
+                    <li class="menu-item">KHOÁ HỌC
+                        <span><i class="fa-solid fa-caret-down"></i></span>
+                        <ul class="sub-menu">
+                            <li class="sub-menu-item">OnLab</li>
+                            <li class="sub-menu-item">Trực tuyến</li>
+                        </ul>
+                    </li>
+                    <li class="menu-item">SẢN PHẨM HỌC VIÊN</li>
+                    <li class="menu-item">KHAI GIẢNG</li>
+                    <li class="menu-item">BLOG</li>
+                    <li class="menu-item">TRẢI NGHIỆM</li>
+                    <li class="menu-item">CHÚNG TÔI
+                        <span><i class="fa-solid fa-caret-down"></i></span>
+                        <ul class="sub-menu">
+                            <li class="sub-menu-item">Trung tâm</li>
+                            <li class="sub-menu-item">Quy định chung</li>
+                            <li class="sub-menu-item">Giảng viên</li>
+                            <li class="sub-menu-item">Hướng dẫn đăng ký học</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Giỏ hàng -->
+            <div class="cart">
+                <span class="cart-icon">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                </span>
+                <span class="cart-count">0</span>
+            </div>
+            
+            <!-- Avatar -->
+            <div class="avatar">
+                <img src="https://techmaster.vn/resources/image/anonymous-user.jpg" alt="Avatar">
+                <ul class="sub-menu">
+                    <li class="sub-menu-item">Lớp học của tôi</li>
+                    <li class="sub-menu-item">Lịch sử giao dịch</li>
+                    <li class="sub-menu-item">Hồ sơ cá nhân</li>
+                    <li class="sub-menu-item">Đăng xuất</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="courses">
+        <div class="container">
+
+            <button class="back-button"><a href="./index.html">Quay lại trang chủ</a></button>
+
+
+            <div class="courses-main">
+                <div class="card">
+
+                    <h3 class="courses-title">Lập trình web với Spring Boot online</h3>
+
+                    <div class="courses-info">
+                        <p>Bạn biết Java core…</p>
+                        <p>Bạn biết một chút HTML, CSS, JS…</p>
+                        <p>Bạn biết SQL cơ bản…</p>
+                        <p>Và bạn muốn dựng website hoàn chỉnh.</p>
+                        <p>HÃY BẮT TAY VỚI SPRING BOOT. Spring Boot là một dự án nổi bật trong hệ sinh thái Spring Framework với mục tiêu giúp phát triển ứng dụng nhanh, độc lập, giảm cấu hình mà chỉ cần “just run”.</p>
+                        <p><b>Spring Boot có gì hay ho</b></p>
+                        <ul class="ul-courses">
+                            <li>Giúp xây dựng ứng dụng Spring độc lập (stand-alone).</li>
+                            <li>Giúp xây dựng gần như là mọi thứ, từ REST API, WebSocket, Web, Streaming và nhiều hơn thế.</li>
+                            <li>Giúp giảm rất nhiều thời gian phát triển ứng dụng bằng việc tối ưu công đoạn cấu hình và không yêu cầu cấu hình thông qua XML.</li>
+                            <li>Nhúng trực tiếp Tomcat, Jetty, Undertow… do đó không cần phải triển khai tập tin WAR.</li>
+                            <li>Tích hợp một loạt các mô-đun khác nhau trong họ hàng Spring như Spring Data, Spring MVC, Spring Security, Spring JDBC, Spring ORM…</li>
+                            <li>Dễ dàng để phát triển các ứng dụng Spring dựa trên Java hoặc Groovy.</li>
+                            <li>Hỗ trợ nhiều IDE như Spring Tool Suite, IntelliJ IDEA và NetBeans.</li>
+                        </ul>
+                        <p>⇒ Đây là lý do vì sao Spring Boot rất HOT trong lập trình Java back-end.</p>
+                        <p><b>Ưu điểm khóa học</b></p>
+                        <ul class="ul-courses">
+                            <li>Giáo trình được xây dựng theo chuẩn Microlearning có hand-on-lab chia thành từng bước nhỏ</li>
+                            <li>Nội dung phong phú bao gồm video, lý thuyết và quiz luyện tập sau mỗi bài học</li>
+                            <li>Nhiều ví dụ sourcecode tham khảo</li>
+                            <li>Hướng dẫn làm project step by step</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="container">
+
+            <div class="fcontent">
+                <h4 class="title-1">chủ sở hữu website</h4>
+                <div class="content-footer">
+                    <ul>
+                        <li><p>Công ty TNHH TechMaster Vietnam Ltd</p></li>
+                        <li><p>Số ĐKDN: 0105392153</p></li>
+                        <li><p>Ngày cấp: 4-7-2011</p></li>
+                        <li><p>Nơi cấp: Sở kế hoạch - đầu tư Hà nội</p></li>
+                        <li><p>Người đại diện pháp luật: Lê Minh Thu</p></li>
+                        <li><p>Phụ trách nội dung: Trịnh Minh Cường</p></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="fcontent">
+                <h4 class="title-1">giới thiệu</h4>
+                <div class="content-footer">
+                    <ul>
+                        <li><p><a href="">Học viện CNTT TechMaster</a></p></li>
+                        <li><p><a href="">Giảng viên</a></p></li>
+                        <li><p><a href="">Quy định</a></p></li>
+                        <li><p><a href="">Hướng dẫn mua khóa học</a></p></li>
+                        <li><p><a href="">Ưu đãi và hoàn trả học phí</a></p></li>
+                        <li><p><a href="">Bảo vệ thông tin khách hàng</a></p></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="fcontent">
+                <h4 class="title-1">tư vấn tuyển sinh</h4>
+                <div class="content-footer">
+                    <ul>
+                        <li><p><a href="">Phạm Thị Mẫn - 0963023185</a></p></li>
+                        <li><p><a href="">manpham@techmaster.vn</a></p></li>
+                        <li><p><a href="">Dương Đức Thịnh - 0987273764</a></p></li>
+                        <li><p><a href="">thinh@techmaster.vn</a></p></li>
+                        <li><p><a href="">Nguyễn Thanh Hương - 0382416368</a></p></li>
+                        <li><p><a href="">huong@techmaster.vn</a></p></li>
+                        <li><p>TƯ VẤN ĐÀO TẠO DOANH NGHIỆP</p></li>
+                        <li><p><a href="">0902209011 - cuong@techmaster.vn</a></p></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="fcontent">
+                <h4 class="title-1">địa chỉ</h4>
+                <div class="content-footer">
+                    <div class="last-content-footer">
+                        <ul>
+                            <li><p><a href="">Cơ sở 1: 14 ngõ 4, Nguyễn Đình Chiểu, Quận Hai Bà Trưng, Hà Nội</a></p></li>
+                            <li><p><a href="">Cơ sở 2: Tầng 12A, tòa nhà Viwaseen Tower, số 48, Tố Hữu, Lê Văn Lương kéo dài, Hà Nội</a></p></li>
+                            <li><p><a href="">Cơ sở 3: 77 Đường số 23, khu nhà thương mại, KĐT TP Giao lưu, Bắc Từ Liêm, Hà Nội</a></p></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
