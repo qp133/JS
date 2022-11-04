@@ -6,7 +6,7 @@ const userApi = {
         return axiosClient.get(url);
     },
     createUsers(newUser) {
-        const url = "/users"
+        const url = "/users";
         return axiosClient.post(url, newUser);
     },
     updateUser(id, updatedUser) {
@@ -16,7 +16,11 @@ const userApi = {
     deleteUser(id) {
         const url = `/users/${id}`
         return axiosClient.delete(url);
-    }
+    },
+    getUserById(findUserName) {
+        const url = `users/search?name=${findUserName}`;
+        return axiosClient.get(url);
+    },
 }
 
 export default userApi;
