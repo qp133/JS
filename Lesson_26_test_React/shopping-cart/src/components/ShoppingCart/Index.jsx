@@ -51,18 +51,23 @@ function ShoppingCart() {
                     </div>
                 </div>
 
-                <p className="fst-italic message" >Không có sản phẩm trong giỏ hàng</p>
-                <div className="row shopping-cart">
-                    <ProductList 
-                        onList = {products}
-                        onAdd = {addCount}
-                        onDec = {decCount}
-                        onDelete = {handleDelete}
-                    />
-                    <BillInfo 
-                        onList = {products}
-                    />
-                </div>
+                {products.length === 0 && (
+                    <p className="fst-italic message" >Không có sản phẩm trong giỏ hàng</p>
+                )}
+                {products.length > 0 && (
+                    <div className="row shopping-cart">
+                        <ProductList 
+                            onList = {products}
+                            onAdd = {addCount}
+                            onDec = {decCount}
+                            onDelete = {handleDelete}
+                        />
+                        <BillInfo 
+                            onList = {products}
+                        />
+                    </div>                        
+                )}
+
             </div>
         </div>
     )
