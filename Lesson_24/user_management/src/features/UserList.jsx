@@ -1,7 +1,7 @@
 import { useEffect,useState } from "react";
 import React from "react";
 import { Link } from "react-router-dom";
-import UserApi from "../api/UserApi";
+import Api from "../api/Api";
 
 function UserList(){
     const [users, setUsers] = useState([]);
@@ -12,7 +12,7 @@ function UserList(){
     useEffect(() => {
         const fetchUsers = async () => {
             try {
-                let res = await UserApi.getUsers();
+                let res = await Api.getUsers();
                 setUsers(res.data);
                 setRenderedUser(res.data);
                 
@@ -43,7 +43,7 @@ function UserList(){
         try {
             
             // Gọi API xóa phía server
-             await UserApi.deleteUser(id);
+             await Api.deleteUser(id);
             
             // Cập nhật trong state ban đầu
             const newUser = users.filter((user) => user.id !== id);

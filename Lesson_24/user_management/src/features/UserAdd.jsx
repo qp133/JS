@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import UserApi from "../api/UserApi";
+import Api from "../api/Api";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -28,7 +28,7 @@ function UserAdd() {
     };
     const fetchUsers = async () => {
       try {
-        let res = await UserApi.getUsers();
+        let res = await Api.getUsers();
         setUsers(res.data);
         // setRenderedUser(res.data);
       } catch (error) {
@@ -61,7 +61,7 @@ function UserAdd() {
         password: userPassword,
       };
       // Gọi API xóa phía server
-      let res = await UserApi.createUsers(newUser);
+      let res = await Api.createUser(newUser);
 
       //sau khi tạo User thành cong
       toast.success("Tạo User Thành Công");

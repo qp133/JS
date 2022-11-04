@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import userApi from "../api/UserApi";
+import Api from "../api/Api";
 
 function UserEdit() {
   const { userId } = useParams();
@@ -12,7 +12,7 @@ function UserEdit() {
     const fetchUser = async () => {
       try {
         //Gọi API
-        let res = await userApi.getUserById(userId);
+        let res = await Api.getUserById(userId);
         setUser(res.data);
       } catch (error) {
         console.log(error);
