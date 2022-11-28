@@ -12,10 +12,12 @@ function ShoppingCart() {
     //Dùng để dispatch action
     const dispatch = useDispatch();
 
+    //Sự kiện tăng
     const addCount = (id) => {
         dispatch(addCountProduct(id))
     }
 
+    //Sự kiện giảm
     const decCount = (id) => {
         let currentItem = shoppingCart.find(item => item.id === id);
 
@@ -27,6 +29,7 @@ function ShoppingCart() {
         }
     }
 
+    //Xóa
     const handleDelete = (id) => {
         if (window.confirm("Do you really want to delete this product?")) {
             dispatch(deleteProduct(id));
