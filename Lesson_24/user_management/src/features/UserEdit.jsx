@@ -1,16 +1,36 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
 import Api from "../api/Api";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-function UserEdit() {
+function Detail() {
   const { userId } = useParams();
   const [provinces, setProvinces] = useState([]);
   const [user, setUser] = useState(null);
+  const navigate = useNavigate();
+  const [oldPassword, setOldPassword] = useState(null);
+  const [newPassword, setNewPassword] = useState(null);
+
+  useEffect(() => {
+    const fectUsers = async () => {
+      try {
+        let res = await Api.getUsers();
+        setUser(res.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fectUsers();
+  }, []);
 
   useEffect(() => {
     const fetchUser = async () => {
       try {
+        // let res = await axios.get(
+        //     `http://localhost:8080/api/v1/users/${userId}`
+        // );
         //Gọi API
         let res = await Api.getUserById(userId);
         setUser(res.data);
@@ -34,8 +54,69 @@ function UserEdit() {
     fetchProvinces();
   }, []);
 
-  const updateInfo = ()=>{
-    
+  const handleUpdateInfo = async (id) => {
+    try {
+      if (!user.name) {
+        alert("Tiêu đề không được để trống");
+        return;
+      }
+      //tạo biến mới
+      const updatedUser = {
+        name: user.name,
+        phone: user.phone,
+        address: user.address,
+      };
+      // Gọi API cập nhật phía server
+      await Api.updateUser(id, updatedUser);
+
+      //sau khi Update User thành cong
+      alert("Update User Thành Công");
+      setTimeout(() => {
+        navigate("/users");
+      }, 1500);
+    } catch (e) {
+      alert(e.response.data.message);
+    }
+  };
+
+  //updatePassword
+  const handleUpdatePassword = async (oldPassword, newPassword) => {
+    try {
+      console.log(user.id);
+      console.log(newPassword);
+      if(!oldPassword){
+        alert("Vui lòng nhập mật khẩu cũ");
+        return;
+      }
+      const updatedPassword = {
+        oldPassword : oldPassword,
+        newPassword : newPassword
+      }
+      //Gọi API
+      await Api.updatePassword(user.id, updatedPassword);
+
+      //sau khi UpdatePassword thành cong
+      alert("Cập nhật mật khẩu Thành Công");
+      setTimeout(() => {
+        navigate("/users");
+      }, 1500);
+    } catch (e) {
+      alert(e.response.data.message);
+    }
+  };
+
+  const handleForgorPassword = async (id) => {
+    try {
+      // Gọi API cập nhật phía server
+      await Api.forgotPassword(id);
+      //sau khi thành cong
+      alert("Mật khẩu mới sẽ được gửi về địa chỉ Email. Vui lòng kiểm tra Hộp thư đến.");
+      setTimeout(() => {
+        navigate("/users");
+      }, 1500);
+    } catch (e) {
+      alert(e.response.data.message);
+    }
   }
   return (
     <div className="container mt-5 mb-5">
@@ -80,7 +161,7 @@ function UserEdit() {
                 className="form-select"
                 id="address"
                 value={user?.address}
-                onChange={(e) => setUser(e.target.value)}
+                onChange={(e) => setUser({ ...user, address: e.target.value })}
               >
                 <option hidden>Chọn Tỉnh/Thành Phố</option>
                 {provinces.map((p) => (
@@ -117,24 +198,25 @@ function UserEdit() {
                 >
                   Đổi mật khẩu
                 </button>
-                <button className="btn btn-warning" id="btn-forgot-password">
+                <button className="btn btn-warning"
+                        id="btn-forgot-password"
+                        onClick={() => handleForgorPassword(user.id)}>
                   Quên mật khẩu
                 </button>
               </div>
             </div>
           </div>
           <div className="text-center mt-3">
-            <Link   className="btn btn-secondary btn-back"
-                    to={"/users"}
-            >
+            <Link className="btn btn-secondary btn-back" to={"/users"}>
               Quay lại
             </Link>
-            <Link   className="btn btn-success"
-                    to={"/users"}
-                    id="btn-save"
-                    onClick={()=>updateInfo()}>
+            <button
+              className="btn btn-success"
+              id="btn-save"
+              onClick={() => handleUpdateInfo(user.id)}
+            >
               Cập nhật
-            </Link>
+            </button>
           </div>
         </div>
       </div>
@@ -165,11 +247,23 @@ function UserEdit() {
             <div className="modal-body">
               <div className="mb-3">
                 <label className="col-form-label">Mật khẩu cũ</label>
-                <input type="text" id="old-password" className="form-control" />
+                <input
+                  type="text"
+                  id="old-password"
+                  className="form-control"
+                  value={oldPassword}
+                  onChange={(e) => setOldPassword(e.target.value)}
+                />
               </div>
               <div className="mb-3">
                 <label className="col-form-label">Mật khẩu mới</label>
-                <input type="text" id="new-password" className="form-control" />
+                <input
+                  type="text"
+                  id="new-password"
+                  className="form-control"
+                  value={newPassword}
+                  onChange={(e) => setNewPassword(e.target.value)}
+                />
               </div>
             </div>
             <div className="modal-footer">
@@ -184,6 +278,7 @@ function UserEdit() {
                 type="button"
                 className="btn btn-primary"
                 id="btn-change-password"
+                onClick={() => handleUpdatePassword(oldPassword, newPassword)}
               >
                 Xác nhận
               </button>
@@ -194,4 +289,4 @@ function UserEdit() {
     </div>
   );
 }
-export default UserEdit;
+export default Detail;
